@@ -1,19 +1,24 @@
+#include <stdbool.h>
+
 #include "lininterp.h"
 
 int lininterp(float x[TRIGGERS], float y[TRIGGERS], float sp, float* res)
 {
-    Point2 p0;
-    Point2 p1;
+    Point2 p0 = {0,0};
+    Point2 p1 = {0,0};
 
     // Check if x is increasing
     for (int i = 0; i < (TRIGGERS - 1); i++)
-        if (x[i] <= x[i+1]) return XORDER;
+        if (x[i] >= x[i+1]) return ERRXORDER;
 
     // check if the setpoint hits any of the x points
     for (int i = 0; i < TRIGGERS; i++)
     {
-        if (sp == x[i]) *res = sp;
-        return NOERROR;
+        if (sp == x[i])
+        {
+            *res = y[i];
+            return NOERROR;
+        }
     }
 
     // Check if extrapolation is needed
@@ -22,24 +27,26 @@ int lininterp(float x[TRIGGERS], float y[TRIGGERS], float sp, float* res)
         p0.x = x[0]; p0.y = y[0];
         p1.x = x[1]; p1.y = y[1];
     }
-    else if (sp > x[TRIGGERS])
+    else if (sp > x[TRIGGERS-1])
     {
-        p0.x = x[TRIGGERS-1]; p0.y = y[TRIGGERS-1];
-        p1.x = x[TRIGGERS]; p1.y = y[TRIGGERS];
+        p0.x = x[TRIGGERS-2]; p0.y = y[TRIGGERS-2];
+        p1.x = x[TRIGGERS-1]; p1.y = y[TRIGGERS-1];
     }
-    else // interpolation is done
+    else // interpolation is needed
     {
+        bool done = false;
         for (int i = 1; i < TRIGGERS; i++)
         {
-            if (sp < x[i])
+            if (sp < x[i] && !done)
             {
                 p0.x = x[i-1]; p0.y = y[i-1];
                 p1.x = x[i]; p1.y = y[i];
+                done = true;
             }
         }
     }
 
-    interpolate(p0, p1, sp);
+    *res = interpolate(p0, p1, sp);
 
     return NOERROR;
 }

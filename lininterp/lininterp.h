@@ -4,9 +4,9 @@
 enum ErrorCodes
 {
     NOERROR   = 0,
-    VALNOTSET = 1,
-    CALCERR   = 2,
-    XORDER    = 3
+    ERRVALNOTSET = 1,
+    ERRCALC   = 2,
+    ERRXORDER    = 3
 };
 
 typedef struct Point2 {

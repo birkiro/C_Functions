@@ -3,10 +3,10 @@
 
 int main()
 {
-    float x[7] = {1,2,3,4,5,6,7};
-    float y[7] = {100,200,300,400,500,600,700};
+    float x[7] = {1000,2000,3000,4000,5000,6000,7000};
+    float y[7] = {300,350,400,450,500,550,600};
 
-    float setpoint = 2;
+    float setpoint = 11.0f;
     float myRes = 0;
 
     if (lininterp(x, y, setpoint, &myRes) == NOERROR)
@@ -14,6 +14,5 @@ int main()
     else
         printf("ERROR!");
 
-    printf("Hello World!\n");
     return 0;
 }
