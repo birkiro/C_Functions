@@ -1,17 +1,16 @@
-
-#define TRIGGERS 7
+#define SP_TOLLERANCE 0.02
 
 enum ErrorCodes
 {
-    NOERROR   = 0,
-    ERRVALNOTSET = 1,
-    ERRCALC   = 2,
-    ERRXORDER    = 3
+    NOERROR   = 0x00,
+    ERRVALNOTSET = 0x08,
+    ERRCALC   = 0x10,
+    ERRXORDER    = 0x20
 };
 
 typedef struct Point2 {
-    float x;
-    float y;
+    double x;
+    double y;
 } Point2;
 
-int lininterp(float x[TRIGGERS], float y[TRIGGERS], float sp, float* res);
+int lininterp(double x[], double y[], double sp, int size, double* res);
