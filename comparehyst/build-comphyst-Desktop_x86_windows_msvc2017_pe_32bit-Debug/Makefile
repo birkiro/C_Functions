@@ -233,6 +233,7 @@ Makefile: ..\comphyst\comphyst.pro D:\Qt\5.14.1\msvc2017\mkspecs\win32-msvc\qmak
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\qt_config.prf \
 		D:\Qt\5.14.1\msvc2017\mkspecs\win32-msvc\qmake.conf \
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\exclusive_builds.prf \
 		D:\Qt\5.14.1\msvc2017\mkspecs\common\msvc-version.conf \
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\toolchain.prf \
@@ -252,7 +253,6 @@ Makefile: ..\comphyst\comphyst.pro D:\Qt\5.14.1\msvc2017\mkspecs\win32-msvc\qmak
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\yacc.prf \
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\lex.prf \
 		..\comphyst\comphyst.pro \
-		.qmake.stash \
 		D:\Qt\5.14.1\msvc2017\mkspecs\features\build_pass.prf
 	$(QMAKE) -o Makefile ..\comphyst\comphyst.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
 D:\Qt\5.14.1\msvc2017\mkspecs\features\spec_pre.prf:
@@ -404,6 +404,7 @@ D:\Qt\5.14.1\msvc2017\mkspecs\features\qt_functions.prf:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\qt_config.prf:
 D:\Qt\5.14.1\msvc2017\mkspecs\win32-msvc\qmake.conf:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\spec_post.prf:
+.qmake.stash:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\exclusive_builds.prf:
 D:\Qt\5.14.1\msvc2017\mkspecs\common\msvc-version.conf:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\toolchain.prf:
@@ -423,7 +424,6 @@ D:\Qt\5.14.1\msvc2017\mkspecs\features\exceptions.prf:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\yacc.prf:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\lex.prf:
 ..\comphyst\comphyst.pro:
-.qmake.stash:
 D:\Qt\5.14.1\msvc2017\mkspecs\features\build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\comphyst\comphyst.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"

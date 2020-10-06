@@ -152,7 +152,7 @@ compiler_clean:
 
 ####### Compile
 
-debug\comparehyst.obj: ..\comphyst\comparehyst.c 
+debug\comparehyst.obj: ..\comphyst\comparehyst.c ..\comphyst\comparehyst.h
 
 debug\main.obj: ..\comphyst\main.c 
 
